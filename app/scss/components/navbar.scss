@@ -1,0 +1,186 @@
+@use '../util' as *;
+@use '../globals' as *;
+
+.header {
+   
+    &__navbar {
+       height: 5rem;
+    }
+
+    &__logo {
+        position: relative;
+       z-index: 15; 
+    }
+
+    &__nav-links {
+       
+        @include breakpoint-up(large) {
+            width: 40vw;
+            display:flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__nav-item {
+        color: inherit;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            margin: auto;
+            bottom: rem(-3);
+            left: 0;
+            height: rem(2);
+            width: 0;
+            background-color: var(--cream);
+            transition: width .3s ease-in-out;
+        }
+
+        &:hover::after {
+           width: 100%
+          
+        }
+    }
+
+    &__nav-menu-icon-wrapper {
+        height: 2rem;
+        width: 2rem;
+        cursor: pointer;
+
+        @include breakpoint-up(large) {
+            display: none;
+        }
+    }
+
+    &__nav-menu-icon {
+        position: relative;
+        z-index: 10;
+        width: 1.6rem;
+        height: .15rem;
+        background-color: var(--cream);
+        border-radius: 5px;
+        transition: background-color .3s linear;
+       
+        &.active:nth-of-type(1) {
+          background-color: transparent;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: rem(-7);
+            width: inherit;
+            height: inherit;
+            background-color: var(--cream);
+            border-radius: inherit;
+            transition: transform .3s linear, top .3s linear;;
+        }
+
+         &.active::before {
+            background-color: var(--cream);
+            transform: rotate(45deg);
+            top:0;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: rem(7);
+            width: inherit;
+            height: inherit;
+            background-color: var(--cream);
+            border-radius: inherit;  
+            transition: transform .3s linear, top .3s linear;
+        }
+
+        &.active::after {
+            top:0;
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__mobile-nav-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: 10rem 6rem 10rem 0;
+        opacity: 0;
+        z-index: -1;
+        visibility: hidden;
+        transition: all .3s;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+    }
+
+    &__mobile-nav-menu-wrapper {
+        height: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+        transform: skew(-14deg) translateX(-18%);
+    }
+
+    &__mobile-nav-menu.active {
+        opacity: 1;
+        z-index: 5;
+        visibility: visible;
+    }
+
+    &__mobile-nav-menu::before {
+        content: '';
+        position: absolute;
+        background-color: var(--dark);
+        top: 0;
+        bottom: 0;
+        right: rem(-15);
+        left: 0;
+        transform-origin: 0 0;
+        transform: skew(-14deg) translateX(-110%);
+        transition: transform .2s ease-in-out;
+    }
+
+    &__mobile-nav-menu.active::before {
+        transform: skew(-14deg) translateX(0%);
+    }
+
+    &__mobile-nav-item {
+        position: relative;
+        color: var(--cream);
+        font-size: 1.875rem;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(rem(10));
+
+        &:nth-child(1) {
+            transition: all .3s 175ms;
+        }
+
+        &:nth-child(2) {
+            transition: all .3s 225ms;
+        }
+
+        &:nth-child(3) {
+            transition: all .3s 275ms;
+        }
+
+        &:nth-child(4) {
+            transition: all .3s 325ms;
+        }
+
+        &:nth-child(5) {
+            transition: all .3s 375ms;
+        }
+
+        &:nth-child(6) {
+            transition: all .3s 425ms;
+        }
+       
+        &.active {
+            transform:translateY(0) skew(14deg);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+

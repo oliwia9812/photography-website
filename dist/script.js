@@ -1,0 +1,2 @@
+"use strict";var hamburgerMenuWrapper=document.querySelector(".header__nav-menu-icon-wrapper"),hamburgerMenu=document.querySelector(".header__nav-menu-icon"),menuNav=document.querySelector(".header__mobile-nav-menu"),mobileNavItems=document.querySelectorAll(".header__mobile-nav-item");hamburgerMenuWrapper.addEventListener("click",(function(){hamburgerMenu.classList.toggle("active"),menuNav.classList.toggle("active"),mobileNavItems.forEach((function(e){e.classList.toggle("active")}))}));
+//# sourceMappingURL=script.js.map

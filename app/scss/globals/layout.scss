@@ -1,0 +1,28 @@
+@use '../util' as *;
+
+.container {
+    max-width: rem(1100);
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @include breakpoint-up(large) {
+        padding: 0;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+
+    &--j-c {
+        justify-content: center;
+    }
+
+    &--j-sb {
+        justify-content: space-between;
+    }
+
+    &--a-c {
+        align-items: center;
+    }
+}
