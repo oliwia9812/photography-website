@@ -9,7 +9,8 @@
 
     &__logo {
         position: relative;
-       z-index: 15; 
+        z-index: 15; 
+        font-size: rem(24);
     }
 
     &__nav-links {
@@ -19,11 +20,22 @@
             display:flex;
             justify-content: space-between;
         }
+        @include breakpoint-up(xlarge) {
+            width: 28vw;
+            display:flex;
+            justify-content: space-between;
+        }
     }
 
     &__nav-item {
         color: inherit;
         position: relative;
+        z-index: 10;
+        font-size: rem(14);
+
+        @include breakpoint-up(xlarge) {
+            font-size: rem(16);
+        }
 
         &::after {
             content: '';

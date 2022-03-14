@@ -2,9 +2,157 @@
 @use '../globals' as *;
 
 .header {
+    position: relative;
     overflow-x: hidden;
     color: var(--cream);
     height: 100vh;
     width: 100vw;
-    background-color: rgb(31, 34, 34);
+
+
+    &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    }
+    
+    &__wrapper {
+        height: 60vh;
+        position: absolute;
+        bottom: 10%;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @include breakpoint-up(large) {
+            height: 100vh;
+            position: absolute;
+            top:0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            flex-direction: row;
+        }
+    }
+
+    &__social {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        height: 18vh;
+       
+        @include breakpoint-up(large) {
+            align-items: center;
+            width: auto;
+            margin-right: rem(120);
+            height: auto;
+
+            &::before {
+                content: "";
+                height: 25vh;
+                width: rem(1.5);
+                background-color: var(--cream);
+            }
+
+            &::after {
+                content: "";
+                height: 25vh;
+                width: rem(1.5);
+                background-color: var(--cream);
+            }
+        }
+    }
+
+    &__social-icon {
+        height: rem(28);
+        width: rem(28);   
+        fill: var(--cream);
+        transition: transform .3s cubic-bezier(0.33, 1, 0.68, 1);
+
+        &:hover {
+            cursor: pointer;
+            fill: var(--hover);
+        }
+
+        @include breakpoint-up(large) {
+            margin-bottom: rem(28);
+        }
+    }
+
+    &__social-icon:first-of-type {
+        @include breakpoint-up(large) {
+            margin-top: rem(28);
+        }
+    }
+
+    &__personal {
+        order: -1;
+        align-self: flex-start;
+        
+        h1 {
+            font-size: rem(48);
+            line-height: 1;
+            margin-bottom: rem(0);
+
+            @include breakpoint-up(large) {
+                font-size: rem(56);
+            }
+
+            @include breakpoint-up(xlarge) {
+                font-size: rem(74);
+            }
+        }
+
+        h2 {
+            font-weight: 400;
+            font-size: rem(16);
+            letter-spacing: rem(1);
+
+
+            @include breakpoint-up(large) {
+                font-size: rem(26);
+            }
+
+            @include breakpoint-up(xlarge) {
+                font-size: rem(36);
+            }
+        }
+
+        @include breakpoint-up(large) {
+            order: 0;
+            align-self: auto;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-image: url('../images/header-4.jpg');
+        background-position: 46% 0;
+        background-size: cover;
+        transform: scaleX(-1);
+
+        @include breakpoint-up(large) {
+            background-position: 100% bottom;
+        }
+
+        @include breakpoint-up(xlarge) {
+            background-position: center bottom;
+        }
+    }
 }

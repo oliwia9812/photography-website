@@ -1,0 +1,26 @@
+@use '../util' as *;
+@use '../globals' as *;
+
+.button {
+    position: relative;
+    background-color: var(--cream);
+    border: 0;
+    padding: rem(16) rem(32);
+    margin-top: rem(16);
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: rem(2);
+    font-weight: 800;
+    font-size: .625rem;
+    transition: transform .3s cubic-bezier(0.33, 1, 0.68, 1);
+    &:hover {
+        cursor: pointer;  
+        background-color: var(--hover);
+        color: var(--cream);
+    }
+
+    @include breakpoint-up(large) {
+        margin-top: rem(16)
+    }
+
+}

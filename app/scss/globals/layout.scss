@@ -3,10 +3,15 @@
 .container {
     max-width: rem(1100);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.6rem;
 
     @include breakpoint-up(large) {
+        padding: 0 6rem;
+    }
+    @include breakpoint-up(xlarge) {
+        max-width: rem(1300);
         padding: 0;
+       
     }
 }
 
