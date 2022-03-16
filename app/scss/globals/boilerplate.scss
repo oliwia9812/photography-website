@@ -12,7 +12,6 @@ html {
 
 body {
     width: 100%;
-    overflow-x: hidden;
     margin: 0;
     padding: 0;
     font-family: var(--font-poppins);
@@ -32,4 +31,22 @@ ul {
     @include breakpoint-up(large) {
         display: none;
     }
+}
+
+.image {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+@mixin underlineHoverEffect($color) {
+    content: '';
+    position: absolute;
+    margin: auto;
+    bottom: rem(-3);
+    left: 0;
+    height: rem(2);
+    width: 0;
+    background-color: $color;
+    transition: width .3s cubic-bezier(0.33, 1, 0.68, 1);
 }
