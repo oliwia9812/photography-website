@@ -57,3 +57,18 @@ ul {
     background-color: $color;
     transition: width .3s cubic-bezier(0.33, 1, 0.68, 1);
 }
+
+@mixin  background-img($url, $position) {
+    background-image: $url;
+    background-position: $position;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin position-absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
