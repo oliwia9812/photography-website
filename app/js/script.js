@@ -1,4 +1,7 @@
 // Nav
+
+const { getBaseApp } = require("browser-sync/dist/server/utils");
+
 // ======
 const hamburgerMenuWrapper = document.querySelector('.header__nav-menu-icon-wrapper');
 const hamburgerMenu = document.querySelector('.header__nav-menu-icon'); 
@@ -152,6 +155,8 @@ dotsNav.addEventListener('click',(e) => {
     showHideArrows(slides, prevIcon, nextIcon, targetIndex);
 
 })
+
+
 
 
 

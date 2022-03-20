@@ -58,7 +58,7 @@ ul {
     transition: width .3s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-@mixin  background-img($url, $position) {
+@mixin background-img($url, $position) {
     background-image: $url;
     background-position: $position;
     background-size: cover;
@@ -72,3 +72,4 @@ ul {
     bottom: 0;
     left: 0;
 }
+

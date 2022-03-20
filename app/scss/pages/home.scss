@@ -1,6 +1,7 @@
 @use '../util' as *;
 @use '../globals' as *;
 
+
 .header {
     position: relative;
     overflow-x: hidden;
@@ -77,7 +78,7 @@
         height: rem(28);
         width: rem(28);   
         fill: var(--cream);
-        transition: transform .3s cubic-bezier(0.33, 1, 0.68, 1);
+        transition: fill .3s cubic-bezier(0.33, 1, 0.68, 1);
 
         &:hover {
             cursor: pointer;
@@ -163,12 +164,7 @@
     padding: 5vh 0;
     
     @include breakpoint-up(large) {
-        height: 80vh;
-        padding: 10vh 0; 
-    }
-
-    @include breakpoint-up(large) {
-        height: 100vh;
+        height: 85vh;
         padding: 10vh 0; 
     }
    
@@ -248,6 +244,8 @@
 
     &__content {
         @include breakpoint-up(large) {
+            overflow: hidden;
+            height: 100%;
             width: 50%;
         }
     }
@@ -265,9 +263,9 @@
         @include breakpoint-up(large) {
             background-image: url('/images/about.jpg');
             background-position: center bottom;
-            height: rem(340);
-            width:rem(340);
-            margin-bottom: rem(48);
+            height: 40%;
+            width: 50%;
+            margin-bottom: 5%;
         }
     }
 
@@ -276,7 +274,7 @@
         margin-top: rem(24);
         margin-bottom: rem(24);
        
-        @include breakpoint-up(xlarge) {
+        @include breakpoint-up(large) {
             margin-top: rem(28);
             margin-bottom: rem(28);
             width: 80%;
@@ -353,15 +351,15 @@
 .portfolio {
 
     @include breakpoint-up(large) { 
-       height: 100vh;
-       padding: 5vh 0 10vh 0;
+       height: 120vh;
+       padding: 8vh 0;
       }
 
     &__container {
         flex-direction: column;
         position: relative;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
+        padding-top: 8vh;
+        padding-bottom: 8vh;
         height: 100%;
         width: 100vw;
 
@@ -372,7 +370,6 @@
         @include breakpoint-up(large) { 
             padding-top: 0;
             padding-bottom: 0;
-           
         }
     }
 
@@ -510,8 +507,9 @@
         @include breakpoint-up(large) { 
             position: absolute;
             left: 50%;
+            bottom: rem(-48);
             transform: translate(-50%, 50%);
-            bottom: -5vh;
+            
           }
     }
 }
@@ -677,7 +675,7 @@
 }
 
 .blog {
-    padding: rem(48) 0;
+    padding: 8vh 0;
     background-color: var(--light-gray);
     text-align: center;
 
@@ -687,8 +685,17 @@
 
     &__container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: 1fr;
+        // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-gap: rem(24);
+
+        @include breakpoint-up(medium) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include breakpoint-up(large) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+      
     }
 
     &__card {
@@ -706,9 +713,13 @@
 
     &__card-image {
         position: relative;
-        height: 30vh;
+        height: 28vh;
         width: 100%;
         overflow: hidden;
+
+        @include breakpoint-up(xlarge) {
+            height: 25vh;
+        }
     }
 
     &__card-image-1 {
@@ -717,7 +728,7 @@
             content: '';
             transition: transform .2s ease-in;
             @include position-absolute;
-            @include background-img(url('/images/blog-1.jpg'), 0 0)   
+            @include background-img(url('/images/blog-1.jpg'), center center)   
         }
     }
 
@@ -798,4 +809,161 @@
     }
 }
 
+.footer {
+    padding: 8vh 0;
+    color: var(--cream);
+    background-color: var(--very-dark);
+    position: relative;
 
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @include breakpoint-up(large) { 
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__one {
+        position: relative;
+        height: 18rem;
+        height: auto;
+        width: 100%;
+        padding-bottom: rem(36);
+
+        @include breakpoint-up(large) {
+            margin: rem(24) 0;
+        }
+    }
+
+    &__logo {
+        font-size: rem(24);
+    }
+
+    &__btn {
+        width: 100%;
+
+        @include breakpoint-up(medium) {
+            width: auto;
+        }
+    }
+
+    &__newsletter {
+        position: absolute;
+        bottom: 0;
+    }
+
+    &__newsletter-heading {
+        padding-bottom: rem(24);
+    }
+
+    &__newsletter-form {
+        border-bottom: rem(1) solid var(--cream);
+        display: flex;
+        align-items: center;
+    }
+
+    &__newsletter-input {
+        background-color: transparent;
+        border: 0;
+        color: var(--cream);
+        padding-bottom: rem(12);
+        font-size: rem(16);
+
+
+        &:placeholder-shown {
+            color: var(--cream);
+            padding-bottom: rem(12);
+            font-size: rem(16);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__newsletter-btn {
+        background-color: transparent;
+        border: 0;
+        font-size: 0;
+        margin-bottom: rem(12);
+        margin-right: rem(4);
+        height: rem(18);
+        width: rem(18);
+        @include background-img(url('/images/arrow-right-cream.svg'), center center);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__two {
+        margin: rem(24) 0;
+        height: 18rem;
+        width: 50%;
+        padding: 0 10%;
+        border-left: rem(1) solid var(--cream);
+    }
+
+    &__nav-links {
+        margin: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: rem(16) 0;
+       
+    }
+
+    &__nav-link {
+        transform: color .3s cubic-bezier(0.33, 1, 0.68, 1);
+
+        &:hover {
+            color: var(--hover);
+            cursor: pointer;
+        }
+    }
+
+    &__three {
+        margin: rem(24) 0;
+        height: 18rem;
+        width: 50%;
+        padding: 0 10%;
+        border-left: rem(1) solid var(--cream);
+    }
+
+    &__social {
+        margin: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    &__social-icon {
+        fill: var(--cream);
+        width: rem(32);
+        height: rem(32);
+        transition: fill .3s cubic-bezier(0.33, 1, 0.68, 1);
+
+        &:not(:last-of-type) {
+            margin-bottom: rem(36);
+        }
+
+        &:hover {
+            fill: var(--hover);
+            cursor: pointer;
+        }
+    }
+
+    &__copyrights {
+        text-align: center;
+        width: 100%;
+        opacity: 0.4;
+        font-size: rem(12);
+        position: absolute;
+        bottom: rem(24);
+    }
+}

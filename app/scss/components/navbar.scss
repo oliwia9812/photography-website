@@ -37,18 +37,6 @@
             font-size: rem(16);
         }
 
-        // &::after {
-        //     content: '';
-        //     position: absolute;
-        //     margin: auto;
-        //     bottom: rem(-3);
-        //     left: 0;
-        //     height: rem(2);
-        //     width: 0;
-        //     background-color: var(--cream);
-        //     transition: width .3s cubic-bezier(0.33, 1, 0.68, 1);
-        // }
-
         &::after {
             @include underlineHoverEffect(var(--cream));
         }
